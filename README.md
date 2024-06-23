@@ -40,7 +40,7 @@
                 System.out.println(list);
               }
             }
-## 2.) Write a Java Programs to print Numbers and Characters
+## 3.) Write a Java Programs to print Numbers and Characters
               import java.util.regex.Matcher;
               import java.util.regex.Pattern;
               
@@ -78,3 +78,28 @@
               	}
               
               }
+
+## 4. WAP to Print only duplicate and unique element
+                      import java.util.Arrays;
+                      import java.util.HashSet;
+                      import java.util.List;
+                      import java.util.Set;
+                      import java.util.stream.Collectors;
+                      
+                      public class ExtractOnlyDuplicateNumbers {
+                      	public static void main(String[] args) {
+                      		//1. Method - Using normal Array
+                      		int[] arr= {23,21,42,40,12,21,60,42,10,15,25};
+                      		Set<Integer> set=new HashSet<>();
+                      		List<Integer> duplicate=Arrays.stream(arr).boxed().filter(num->!set.add(num)).collect(Collectors.toList());
+                      		System.out.println(duplicate);
+                      		
+                      		//2. Method: using list
+                      		List<Integer> list=Arrays.asList(23,21,42,40,12,21,60,42,10,15,25);
+                      		Set<Integer> set1=new HashSet<>();
+                      		List<Integer> duplicateElement=list.stream().filter(e->!set1.add(e)).collect(Collectors.toList());
+                      		System.out.println(duplicateElement);
+                      		System.out.println("Unique element :"+set1);
+                      	}
+                      }
+
