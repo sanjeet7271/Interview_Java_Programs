@@ -18,7 +18,7 @@
                     	public void addStudent() {
                     	}
                     }
-          Solution: separate all methods into different classes:
+                    Solution: separate all methods into different classes:
                     public class Student {
                     	public void addStudent() {
                     	}
