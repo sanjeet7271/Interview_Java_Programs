@@ -31,3 +31,34 @@
                     	public void calculatePercentage() {
                     	}
                     }
+
+## 2. Open-Closed Principle (OCP)
+                    The open-closed principle states that the module should be open for extension but closed for modification according to new requirements. The extension allows us to implement new functionality in the module.
+                    For Example, All vehicles are defined as single-class. if I want to add another name like Truck, it will violate the open-closed principle.
+                    public class VehicleInfo {
+                    	public double vehicleNumber(Vehicle vcl) {
+                    		if (vcl instanceof Car) {
+                    			return vcl.getNumber();
+                    		}
+                    		if (vcl instanceof Bike) {
+                    			return vcl.getNumber();
+                    		}
+                    	}
+                    }
+                    Solution, we can create one vehicle info class and extend it to other types of vehicles.
+                    public class VehicleInfo {
+                    	public double vehicleNumber() {
+                    	}
+                    }
+
+                    public class Car extends VehicleInfo {
+                    	public double vehicleNumber() {
+                    		return this.getValue();
+                    	}
+                    }
+
+                    public class Car extends Truck {
+                    	public double vehicleNumber() {
+                    		return this.getValue();
+                    	}
+                    }
