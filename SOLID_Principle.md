@@ -65,4 +65,64 @@
 
 ## 3. Liskov Substitution Principle (LSP)
                      It applies to inheritance in such a way that the derived classes must be completely substitutable for their base classes. In other words, if class A is a subtype of class B, then we should be able to replace B with A without interrupting the behavior of the program.
-                     
+                               @Data
+                              public class Video{
+                              	private String title;
+                              	private int time;
+                              	private int likes;
+                              	private int views;
+                              	
+                              	public double getNumberOfHoursPlayed() {
+                              		return (time/3600.0)*views;
+                              	}
+                              	public void playRandomAd() throws Exceptions{
+                              		// play ad
+                              		
+                              	}
+                              }
+                              supose we have premium video and no Ad should play.
+                              
+                              public class PremiumVideo extends Video{
+                              	private int premiumId;
+                              	@override
+                              	public void playRandomAd() throws Exceptions {
+                              		throw new Exception("No Ad play during Premium vidoes");
+                              	}
+                              }
+                              // this is not a good idea, this exception might be thrown causes application crash
+                              
+                              Soution is to refactor the code and create new class
+                              
+                              public class VideoManager {
+                              	private String title;
+                              	private int time;
+                              	private int likes;
+                              	private int views;public double getNumberOfHoursPlayed() {
+                              		return (time/3600.0)*views;
+                              	}
+                              	public void playRandomAd() throws Exceptions{
+                              		// Play Ads
+                              		
+                              	}
+                              }
+                              
+                              Now use VideoManger methods into Video and PremiumVideo
+                              
+                              public class Video {
+                              	private VideoManager manager;
+                              	public double getNumberOfHoursPlayed() {
+                              		return manager.getNumberOfHours();
+                              	}
+                              	public void playeRandomAd() {
+                              		manager.playRandomAd();
+                              	}
+                              }
+                              
+                              public class PremiumVideo {
+                              	private VideoManager manager;
+                              	private int premiumId;
+                              	
+                              	public void playRandomAd() throws Exceptions {
+                              		return manager.getNumberOfHours();
+                              	}
+                              }
