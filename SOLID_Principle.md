@@ -126,3 +126,75 @@
                               		return manager.getNumberOfHours();
                               	}
                               }
+
+ ## 4. Interface Segregation Principle (ISP):
+           The principle states that the larger interfaces split into smaller ones. Because the implementation classes use only the methods that are required. We should not force the client to use the methods that they do not want to use.
+           Example :
+           public interface IVideoActions {
+          	double getNumberOfHoursPlayed();
+          	void playRandomAd();
+          }
+          
+          @Data
+          public class Video implements IVideoActions{
+          	private String title;
+          	private int time;
+          	private int likes;
+          	private int views;
+          	@override
+          	public double getNumberOfHoursPlayed() {
+          		return (time/3600.0)*views;
+          	}
+          	@override
+          	public void playRandomAd() throws Exceptions{
+          		// play ad
+          		
+          	}
+          }
+          
+          public class PremiumVideo implements IVideoActions{
+          	private int premiumId;
+          	@override
+          	public double getNumberOfHoursPlayed() {
+          		return (time/3600.0)*views;
+          	}
+          	@override
+          	public void playRandomAd() throws Exceptions {
+          		throw new Exception("No Ad play during Premium vidoes");
+          	}
+          }
+          In this case, we have to override getNUmberOfHoursPlayed and playRandomAd(). which violates Liskov Substitution Principle.
+          We can define 2 interfaces here.
+          public interface IVideoActions {
+          	double getNumberOfHoursPlayed();
+          }
+          
+          public interface IAdActions {
+          	void playRandomAd();
+          }
+          
+          @Data
+          public class Video implements IVideoActions, IAdActions{
+          	private String title;
+          	private int time;
+          	private int likes;
+          	private int views;
+          	@override
+          	public double getNumberOfHoursPlayed() {
+          		return (time/3600.0)*views;
+          	}
+          	@override
+          	public void playRandomAd() throws Exceptions{
+          		// play ad
+          		
+          	}
+          }
+          
+          
+          public class PremiumVideo implements IAdActions{
+          	private int premiumId;
+          	public double getNumberOfHoursPlayed() {
+          		return (time/3600.0)*views;
+          	}
+          }
+          
