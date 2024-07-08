@@ -129,4 +129,54 @@
                   	}
                   }
 
+## WAP tp check password is strong
+          package StringReverseProblems;
 
+          import java.util.Arrays;
+          import java.util.HashSet;
+          import java.util.List;
+          import java.util.Set;
+          
+          public class CheckPasswordStrong {
+          	public static void main(String[] args) {
+          		CheckPasswordStrong strong = new CheckPasswordStrong();
+          		String str = "R@njeet#72872";
+          		boolean isStrong = strong.checkStrongPassword(str);
+          		if (isStrong) {
+          			System.out.println("password is Strong");
+          		} else {
+          			System.out.println("password is not strong");
+          		}
+          	}
+          
+          	private boolean checkStrongPassword(String str) {
+          		boolean hasLowerCase = false;
+          		boolean hasUpparCase = false;
+          		boolean hasDigit = false;
+          		boolean hasSpecialChar = false;
+          		boolean temp = false;
+          		Set<Character> list = new HashSet<Character>(
+          				Arrays.asList('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'));
+          		for (char ch : str.toCharArray()) {
+          			if (Character.isLowerCase(ch)) {
+          				hasLowerCase = true;
+          			}
+          			if (Character.isUpperCase(ch)) {
+          				hasUpparCase = true;
+          			}
+          			if (Character.isDigit(ch)) {
+          				hasDigit = true;
+          			}
+          			if (list.contains(ch)) {
+          				hasSpecialChar = true;
+          			}
+          		}
+          		if (hasLowerCase && hasUpparCase && hasDigit && hasSpecialChar && (str.length() >= 8)) {
+          			temp = true;
+          		} else {
+          			temp = false;
+          		}
+          		return temp;
+          	}
+          }
+          
