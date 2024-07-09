@@ -179,4 +179,20 @@
           		return temp;
           	}
           }
-          
+
+## Convert into Binary from 1 to 10 range
+            package StringReverseProblems;
+            
+            import java.util.List;
+            import java.util.stream.Collectors;
+            import java.util.stream.IntStream;
+            
+            public class ConvertIntoBinary {
+            	public static void main(String[] args) {
+            		//Method 1. print using for each
+            		IntStream.range(1, 10).mapToObj(num->Integer.toBinaryString(num)).forEach(System.out::println);
+            		//Method 2. collect into list and print it
+            		List<String> listOfBinary=IntStream.range(1, 10).mapToObj(num->Integer.toBinaryString(num)).collect(Collectors.toList());
+            		System.out.println(listOfBinary);
+            	}
+            }
