@@ -196,3 +196,23 @@
             		System.out.println(listOfBinary);
             	}
             }
+
+## WAP to count words and characters
+        package StringReverseProblems;
+        
+        import java.util.Arrays;
+        import java.util.function.Function;
+        import java.util.stream.Collectors;
+        
+        public class CountWordsAndCharacters {
+        	public static void main(String[] args) {
+        		//count words
+        		String str="this hi My name is sanjeet kumar pandit hey who is this mine";
+        		Arrays.asList(str.split(" ")).stream().filter(space->!space.contains(" ")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+        		.forEach((k,v)->System.out.println(k+" "+v));
+        		
+        		// count chars
+        		Arrays.asList(str.split("")).stream().filter(space->!space.contains(" ")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+        		.forEach((k,v)->System.out.println(k+" "+v));
+        	}
+        }
