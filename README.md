@@ -216,3 +216,36 @@
         		.forEach((k,v)->System.out.println(k+" "+v));
         	}
         }
+
+## WAP to reverse the string but preserve the space
+              package StringReverseProblems;
+              
+              public class ReverseStringWithPreserveSpace {
+              	public static void main(String[] args) {
+              		String str = "sanjeet kumar pandit";
+              		ReverseStringWithPreserveSpace reserve = new ReverseStringWithPreserveSpace();
+              		reserve.preserveSpace(str);
+              	}
+              
+              	private void preserveSpace(String str) {
+              		int start = 0;
+              		int end = str.length() - 1;
+              		char[] ch = str.toCharArray();
+              		while (start < end) {
+              			if (ch[start] == ' ') {
+              				start++;
+              				continue;
+              			} else if (ch[end] == ' ') {
+              				end--;
+              				continue;
+              			} else {
+              				char temp = ch[start];
+              				ch[start] = ch[end];
+              				ch[end] = temp;
+              				start++;
+              				end--;
+              			}
+              		}
+              		System.out.println(String.valueOf(ch));
+              	}
+              }
