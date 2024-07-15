@@ -267,3 +267,39 @@
           		}
           	}
           }
+
+## WAP to sort by lowercase, uppercase and numbers for example Input: cD87baAC23B and output : abcABC2378
+                                package StringReverseProblems;
+                                import java.util.ArrayList;
+                                import java.util.Collections;
+                                import java.util.List;
+                                public class SortStringByLowerUpparCases {
+                                	public static void main(String[] args) {
+                                		String str="12AacC423AbDbdB";
+                                		SortStringByLowerUpparCases sorting=new SortStringByLowerUpparCases();
+                                		sorting.SortByCases(str);
+                                	}
+                                
+                                	private void SortByCases(String str) {
+                                		List<String> lowerCase=new ArrayList<>();
+                                		List<String> upparCase=new ArrayList<>();
+                                		List<String> numbers=new ArrayList<>();
+                                		char[] ch=str.toCharArray();
+                                		for(char c:ch) {
+                                			if(Character.isLowerCase(c)) {
+                                				lowerCase.add(String.valueOf(c));
+                                			} else if(Character.isUpperCase(c)) {
+                                				upparCase.add(String.valueOf(c));
+                                			} else if(Character.isDigit(c)){
+                                				numbers.add(String.valueOf(c));
+                                			}
+                                		}
+                                		Collections.sort(lowerCase);
+                                		Collections.sort(upparCase);
+                                		Collections.sort(numbers);
+                                		lowerCase.addAll(upparCase);
+                                		lowerCase.addAll(numbers);
+                                		System.out.println(lowerCase);
+                                		
+                                	}
+                                }
