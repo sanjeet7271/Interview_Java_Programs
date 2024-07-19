@@ -303,3 +303,26 @@
                                 		
                                 	}
                                 }
+
+
+## WAP to add 1 to a number represented in the array. Ex1 :{1,1,2} -> {1,1,3}, {1,2,9} -> {1,3,0}, {9,9,9} -> {1,0,0,0}
+                                  package StringReverseProblems;
+                                  import java.util.Arrays;
+                                  public class AddOneInArrays {
+                                  	public static void main(String[] args) {
+                                  		int[] arr=new int[] {9,9,9};
+                                  		AddOneInArrays obj=new AddOneInArrays();
+                                  		obj.AddOne(arr);
+                                  	}
+                                  
+                                  	private void AddOne(int[] arr) {
+                                  		StringBuffer sb=new StringBuffer();
+                                  		for(int i=0;i<arr.length;i++) {
+                                  			sb.append(arr[i]);
+                                  		}
+                                  		System.out.println(sb);
+                                  		int sum = Integer.parseInt(sb.toString())+1;
+                                  		String[] num = String.valueOf(sum).split("");
+                                  		System.out.println(Arrays.deepToString(num));
+                                  	}
+                                  }
