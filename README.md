@@ -326,3 +326,31 @@
                                   		System.out.println(Arrays.deepToString(num));
                                   	}
                                   }
+
+## Longest Common Prefix
+                                        package StringReverseProblems;
+                                        
+                                        public class LongestCommonPrefix {
+                                        	public static void main(String[] args) {
+                                        		String[] str = { "apple", "ape", "april" };
+                                        		LongestCommonPrefix LongestCommonPrefix = new LongestCommonPrefix();
+                                        
+                                        		System.out.println(LongestCommonPrefix.LongestCommonPrefixString(str));
+                                        	}
+                                        
+                                        	private String LongestCommonPrefixString(String[] str) {
+                                        		if (str == null || str.length == 0) {
+                                        			return "";
+                                        		}
+                                        		String pre = str[0];
+                                        		for (int i = 0; i < str.length; i++) {
+                                        			while (str[i].indexOf(pre) != 0) {
+                                        				pre = pre.substring(0, str.length - 1);
+                                        				if (pre.isEmpty()) {
+                                        					return "";
+                                        				}
+                                        			}
+                                        		}
+                                        		return pre;
+                                        	}
+                                        }
