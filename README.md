@@ -354,3 +354,34 @@
                                         		return pre;
                                         	}
                                         }
+
+## Find the minimum distance between the given two words
+
+                                                  package StringReverseProblems;
+                                                  
+                                                  public class ShortedDistanceBetweenWords {
+                                                  	public static void main(String[] args) {
+                                                  		String[] str = { "the", "quick", "brown", "fox", "quick" };
+                                                  		String word1 = "the";
+                                                  		String word2 = "fox";
+                                                  		ShortedDistanceBetweenWords obj = new ShortedDistanceBetweenWords();
+                                                  		obj.shorteddistanceBetweenTwoWords(str, word1, word2);
+                                                  	}
+                                                  
+                                                  	private void shorteddistanceBetweenTwoWords(String[] str, String word1, String word2) {
+                                                  		int d1 = -1, d2 = -1;
+                                                  		int minValue = Integer.MAX_VALUE;
+                                                  		for (int i = 0; i < str.length; i++) {
+                                                  			if (str[i] == word1) {
+                                                  				d1 = i;
+                                                  			}
+                                                  			if (str[i] == word2) {
+                                                  				d2 = i;
+                                                  			}
+                                                  			if (d1 != -1 && d2 != -1) {
+                                                  				minValue = Math.min(minValue, Math.abs(d1 - d2));
+                                                  			}
+                                                  		}
+                                                  		System.out.println(minValue);
+                                                  	}
+                                                  }
