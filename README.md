@@ -385,3 +385,25 @@
                                                   		System.out.println(minValue);
                                                   	}
                                                   }
+## WAP to print missing numbers for Example input:{1,5,2,4}, output: {0,2}
+                    package StringReverseProblems;
+                    public class FindMissingNumber {
+                    	public static void main(String[] args) {
+                    		int[] arr=new int[] {4,3,1,5};
+                    		FindMissingNumber obj=new FindMissingNumber();
+                    		obj.getMissingNumber(arr);
+                    	}
+                    
+                    	private void getMissingNumber(int[] arr) {
+                    		int[] hash = new int[arr.length+1];
+                    		for(int i=0;i<arr.length-1;i++) {
+                    			hash[arr[i]]++;
+                    		}
+                    		//System.out.println(Arrays.toString(arr));
+                    		for(int i=0;i<=arr.length;i++) {
+                    			if(hash[i]==0) {
+                    				System.out.println(i);
+                    			}
+                    		}
+                    	}
+                    }
