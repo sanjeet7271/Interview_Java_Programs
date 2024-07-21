@@ -407,3 +407,32 @@
                     		}
                     	}
                     }
+
+## WAP to merge to array arr1 = { 1, 3, 5, 7, 9 }, arr2 = { 2, 4, 6, 8 }, output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    import java.util.ArrayList;
+                    import java.util.Collections;
+                    import java.util.List;
+                    
+                    public class MergeTwoArray {
+                    	public static void main(String[] args) {
+                    		int[] arr1 = new int[] { 1, 3, 5, 7, 9 };
+                    		int[] arr2 = new int[] { 2, 4, 6, 8 };
+                    		MergeTwoArray mergeTwoArray = new MergeTwoArray();
+                    		mergeTwoArray.MergeArray(arr1, arr2);
+                    	}
+                    
+                    	private void MergeArray(int[] arr1, int[] arr2) {
+                    		List<Integer> merge = new ArrayList<>();
+                    		for (int i = 0; i < arr1.length; i++) {
+                    			merge.add(arr1[i]);
+                    		}
+                    		for (int i = 0; i < arr2.length; i++) {
+                    			merge.add(arr2[i]);
+                    		}
+                    		// 1. sorting it
+                    		Collections.sort(merge);
+                    		System.out.print(merge);
+                    	}
+                    }
+
+  
