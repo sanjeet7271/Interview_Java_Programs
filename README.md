@@ -436,3 +436,34 @@
                     }
 
   
+## WAP to print product of numbers in array except for self input arr={1,2,3,4}, output:{24,12,8,6}
+                package StringReverseProblems;
+                
+                import java.util.Arrays;
+                
+                public class PrintProductOfNumberExceptSelf {
+                	public static void main(String[] args) {
+                		int[] arr = { 1, 2, 3, 4 };
+                		PrintProductOfNumberExceptSelf pr = new PrintProductOfNumberExceptSelf();
+                		pr.ProductOfSelf(arr);
+                	}
+                
+                	private void ProductOfSelf(int[] arr) {
+                		int n = arr.length;
+                		int[] left_product = new int[n]; // arr[1,1,2,6]
+                		int[] right_product = new int[n]; // arr[24,12,4,1]
+                		int[] output_product = new int[n]; // output_product =[24, 12, 8, 6]
+                		left_product[0] = 1;
+                		right_product[n - 1] = 1;
+                		for (int i = 1; i < n; i++) {
+                			left_product[i] = arr[i - 1] * left_product[i - 1];
+                		}
+                		for (int i = n - 2; i >= 0; i--) {
+                			right_product[i]=arr[i+1]*right_product[i+1];
+                		}
+                		for(int i=0;i<n;i++) {
+                			output_product[i]=left_product[i]*right_product[i];
+                		}
+                		System.out.println(Arrays.toString(output_product));
+                	}
+                }
