@@ -9,3 +9,5 @@
     3. 
 
 ## Uses of PartitioningBy
+        The partitioningBy() method always returns a Map with two entries - one for where the Predicate is true, and one for when it's false. Both entries can have empty lists, but they will be present.
+        
