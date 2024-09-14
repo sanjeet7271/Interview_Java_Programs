@@ -18,3 +18,6 @@
                 System.out.println(booleanListMap);
             }
         }
+    Use Counting to count number of numbers are in true and false
+        Map<Boolean, Long> booleanListMapCounting = Stream.of(10,15,20,25,30,35,40,45,50,55,60,65).collect(Collectors.partitioningBy(n -> n % 2 == 0, Collectors.counting()));
+        System.out.println(booleanListMapCounting);
