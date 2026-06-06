@@ -10,3 +10,9 @@
 
 ## Uses of PartitioningBy
 
+
+## Why Is BiConsumer
+BiConsumer is nothing but a predefined functional Interface. this accept only and returns nothing
+Example
+
+
