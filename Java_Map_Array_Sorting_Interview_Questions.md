@@ -98,5 +98,65 @@ Output
 			}
 		});
 		System.out.println(listDESCStore);
+	 }
 	}
-}
+
+## Find the frequency of each element in an integer array.
+## Find duplicate elements in an integer array.
+## Find unique elements in an integer array.
+## Find the first duplicate element in an integer array.
+## Find the first unique element in an integer array.
+## FInd Max number from Array
+## FInd 2nd Max number from Array
+## FInd Min number from Array
+## FInd 2nd Min number from Array
+
+	package Collections;
+
+	import java.util.Arrays;
+	import java.util.Comparator;
+	import java.util.LinkedHashMap;
+	import java.util.function.Function;
+	import java.util.stream.Collectors;
+	
+	public class ArrayManupulationsAnswerUsingMap {
+		public static void main(String[] args) {
+			int[] arr= {2,2,1,3,5,2,6,1,7,3,2,2,6,6,3,3};
+			//Find the frequency of each element in an integer array.
+			Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+			.forEach((k,v)->System.out.print(k+":"+v+" "));
+			// question 1: Find duplicate elements in an integer array.
+			System.out.println();
+			Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+			.entrySet().stream().filter(entry->entry.getValue()>1).forEach(entry->System.out.print(entry.getKey()+" "));
+			
+			//Find unique elements in an integer array.
+			System.out.println();
+			Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+			.entrySet().stream().filter(entry->entry.getValue()==1).forEach(entry-> System.out.print(entry.getKey()+" "));
+			
+			//Find the first duplicate element in an integer array.
+			System.out.println();
+			Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+			.entrySet().stream().filter(entry->entry.getValue()>1).limit(1).forEach(entry->System.out.println(entry.getKey()));
+			
+			//Find the first unique element in an integer array.
+			Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+					.entrySet().stream().filter(entry->entry.getValue()==1).limit(1).forEach(entry->System.out.println(entry.getKey()));
+			
+			// FInd Max number from Array
+			Integer maxNumber=Arrays.stream(arr).distinct().boxed().sorted(Comparator.reverseOrder()).findFirst().get();
+			System.out.println(maxNumber);
+			
+			// FInd 2nd Max number from Array
+			Integer secondMax=Arrays.stream(arr).distinct().boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+			System.out.println(secondMax);
+			
+			// FInd min number from Array
+			Integer minNumber=Arrays.stream(arr).distinct().boxed().sorted().findFirst().get();
+			System.out.println(minNumber);
+			// FInd 2nd min number from Array
+			Integer secondMin=Arrays.stream(arr).distinct().sorted().skip(1).findFirst().getAsInt();
+			System.out.println(secondMin);
+		 }
+	}
