@@ -682,36 +682,6 @@ System.out.println(result);
 
 ------------------------------------------------------------------------
 
-# 15. Interview Challenge Questions
-
-Try solving these without looking at the solution:
-
-1.  Sort a `Map<String, Integer>` by key without using Java 8 Streams.
-2.  Sort a map by value descending and return only the top 3 entries.
-3.  Sort a map by value ascending; if values are equal, sort keys
-    descending.
-4.  Remove null keys and null values from a map.
-5.  Find the key having the highest value.
-6.  Find the key having the second-highest value.
-7.  Find the top 3 employees based on salary.
-8.  Find all duplicate values in a map.
-9.  Count the frequency of values in a map.
-10. Convert a `Map<String, Integer>` into a sorted `LinkedHashMap`.
-11. Sort a map by key length.
-12. Sort a map by key ignoring case.
-13. Sort a `Map<String, List<Integer>>` based on the size of each list.
-14. Sort employees by salary descending and name ascending when salary
-    is equal.
-15. Sort a map without modifying the original map.
-16. Explain why `HashMap` cannot be relied upon to preserve sorted
-    order.
-17. Explain the purpose of the merge function `(a, b) -> a` in
-    `Collectors.toMap()`.
-18. Write the same sorting logic without Streams.
-19. Handle null keys and null values while sorting safely.
-20. Explain the difference between `Map.Entry.comparingByKey()` and
-    `Map.Entry.comparingByValue()`.
-
 ------------------------------------------------------------------------
 
 # 16. Most Important Interview Pattern
@@ -744,5 +714,3 @@ sorted(comparator)
     ↓
 collect(toMap(... LinkedHashMap))
 ```
-
-This pattern is frequently useful in Java 8 Stream coding interviews.
