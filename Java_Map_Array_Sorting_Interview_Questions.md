@@ -9,30 +9,22 @@ int[] arr = {2,2,1,3,5,2,6,1,7,3,2,2,6,6,3,3};
 Output
 {2=5, 1=2, 3=4, 5=1, 6=3, 7=1}
 
-## Question 2
-
-## Sort the array elements in ascending order based on their frequency using Map.
+## Question 2: Sort the array elements in ascending order based on their frequency using Map.
 
 Output
 [5, 7, 1, 1, 6, 6, 6, 3, 3, 3, 3, 2, 2, 2, 2, 2]
 
-## Question 3
-
-## Sort the array elements in descending order based on their frequency using Map.
+## Question 3: Sort the array elements in descending order based on their frequency using Map.
 
 Output
 [2, 2, 2, 2, 2, 3, 3, 3, 3, 6, 6, 6, 1, 1, 5, 7]
 
-## Question 4
-
-## Sort the array elements in ascending order based on their frequency using a one-liner Stream solution.
+## Question 4: Sort the array elements in ascending order based on their frequency using a one-liner Stream solution.
 
 Output
 [5, 7, 1, 1, 6, 6, 6, 3, 3, 3, 3, 2, 2, 2, 2, 2]
 
-## Question 5
-
-## Sort the array elements in descending order based on their frequency using a one-liner Stream solution.
+## Question 5: Sort the array elements in descending order based on their frequency using a one-liner Stream solution.
 
 Output
 [2, 2, 2, 2, 2, 3, 3, 3, 3, 6, 6, 6, 1, 1, 5, 7]
@@ -101,15 +93,15 @@ Output
 	 }
 	}
 
-## Find the frequency of each element in an integer array.
-## Find duplicate elements in an integer array.
-## Find unique elements in an integer array.
-## Find the first duplicate element in an integer array.
-## Find the first unique element in an integer array.
-## FInd Max number from Array
-## FInd 2nd Max number from Array
-## FInd Min number from Array
-## FInd 2nd Min number from Array
+## 1. Find the frequency of each element in an integer array.
+## 2. Find duplicate elements in an integer array.
+## 3. Find unique elements in an integer array.
+## 4. Find the first duplicate element in an integer array.
+## 5. Find the first unique element in an integer array.
+## 6. Find Max number from Array
+## 7. Find 2nd Max number from Array
+## 8. Find Min number from Array
+## 9. Find 2nd Min number from Array
 
 	package Collections;
 
@@ -159,4 +151,55 @@ Output
 			Integer secondMin=Arrays.stream(arr).distinct().sorted().skip(1).findFirst().getAsInt();
 			System.out.println(secondMin);
 		 }
+	}
+
+## 1. Union of two Arrays
+## 2. Intersection of two Arrays
+## 3. Elements in array1 which are not in array2
+## 4. Array2 Elements that are not in Array1
+
+	package Collections;
+	import java.util.LinkedHashSet;
+	import java.util.Set;
+	
+	public class unionIntersectionArray {
+		public static void main(String[] args) {
+			int[] arr={1,8,4,7,6,2,5};
+			int[] arr1={5,2,7,4,9};
+			// Normal Method
+			// Union of the 2 Arrays
+			Set<Integer> unionElements= new LinkedHashSet<>();
+			Set<Integer> intersctionElements= new LinkedHashSet<>();
+			for(int i=0;i<arr.length;i++) {
+				unionElements.add(arr[i]);
+			}
+			for(int i=0;i<arr1.length;i++) {
+				unionElements.add(arr1[i]);
+			}
+			System.out.println("Union:"+unionElements);
+			// Intersection of 2 Array
+			unionElements.removeAll(unionElements);
+			for(int i=0;i<arr.length;i++) {
+				unionElements.add(arr[i]);
+			}
+			for(int i=0;i<arr1.length;i++) {
+				if(unionElements.contains(arr1[i])) {
+					intersctionElements.add(arr1[i]);
+				}
+			}
+			System.out.println("Intersection: "+intersctionElements);
+		
+			// Elements in array1 which are not in array2
+			unionElements.removeAll(intersctionElements);
+			System.out.println("Array1 Elements that are not in Array2 "+unionElements);
+			
+			// Array2 Elements that are not in Array1
+			unionElements.removeAll(unionElements);
+			for(int i=0;i<arr1.length;i++) {
+				unionElements.add(arr1[i]);
+			}
+			unionElements.removeAll(intersctionElements);
+			System.out.println("Array2 Elements that are not in Array1 "+unionElements);
+			
+		}
 	}
